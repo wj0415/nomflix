@@ -6,7 +6,7 @@ import Section from "Components/Section";
 import Poster from "Components/Poster";
 import Message from "Components/Message";
 const Container = styled.div`
-  padding: 0px 20px;
+  padding: 20px;
 `;
 const Form = styled.form`
   margin-bottom: 50px;
