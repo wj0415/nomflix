@@ -23,6 +23,7 @@ export default class extends Component {
       const {
         data: { results: popular }
       } = await moviesApi.popular();
+
       this.setState({ nowPlaying, upcoming, popular });
     } catch {
       this.setState({ error: "Can't find movies information." });

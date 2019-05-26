@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Section from "Components/Section";
 import Poster from "Components/Poster";
-
+import Message from "Components/Message";
 const Container = styled.div`
   padding: 0px 20px;
 `;
@@ -72,6 +72,11 @@ const SearchPresenter = ({
         )}
       </>
     )}
+    {error && <Message color="#e74c3c" text={error} />}
+    {tvResults &&
+      movieResults &&
+      tvResults.length == 0 &&
+      movieResults == 0 && <Message text="Nothing found" color="#95a5a6" />}
   </Container>
 );
 
