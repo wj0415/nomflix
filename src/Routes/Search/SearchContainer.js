@@ -6,16 +6,24 @@ export default class extends Component {
   state = {
     movieResults: null,
     tvResults: null,
-    searchTerm: "code",
+    searchTerm: "",
     error: null,
     loading: false
   };
 
-  handleSubmit = () => {
+  handleSubmit = event => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
     }
+  };
+
+  updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    this.setState({ searchTerm: value });
   };
   searchByTerm = async () => {
     const { searchTerm } = this.state;
@@ -45,6 +53,7 @@ export default class extends Component {
         error={error}
         loading={loading}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
